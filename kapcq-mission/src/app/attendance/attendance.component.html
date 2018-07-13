@@ -1,0 +1,35 @@
+<mat-card>
+  <mat-form-field style="width:100%;">
+    <mat-select placeholder="Select a team" [(ngModel)]="team" (selectionChange)="getTeamMembers()">
+      <mat-option value='YOLO'>YOLO</mat-option>
+      <mat-option value='김선자'>김선자</mat-option>
+      <mat-option value='새가족'>새가족</mat-option>
+      <mat-option value='아람단'>아람단</mat-option>
+      <mat-option value='햄볶음'>햄볶음</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field style="width:100%;">
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="attendanceDate" (dateChange)="getTeamMembers()">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker touchUi="true" #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-list>
+    <mat-list-item><span fxFlex="30%">이름</span><span fxFlex="30%">주일예배</span><span fxFlex="30%">셀모임</span></mat-list-item>
+    <div  *ngFor="let member of members">
+      <mat-list-item>
+        <span fxFlex="30%">{{member.name}}</span>
+        <mat-checkbox color="primary" fxFlex="30%" [(ngModel)]="member.service"></mat-checkbox>
+        <mat-checkbox fxFlex="30%" [(ngModel)]="member.meeting"></mat-checkbox>
+        <button mat-icon-button *ngIf="!member.showNote" (click)="member.showNote=true"><mat-icon>add</mat-icon></button>
+        <button mat-icon-button *ngIf="member.showNote" (click)="member.showNote=false"><mat-icon>remove</mat-icon></button>
+      </mat-list-item>
+      <mat-list-item *ngIf="member.showNote">
+        <mat-form-field style="width:100%;">
+          <input matInput placeholder="note" [(ngModel)]="member.note">
+        </mat-form-field>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </div>
+    <button mat-raised-button color="primary" style="width: 100%;" (click)="addAttendance()" routerLink="/member/dashboard"><span style="color: white;">Submit</span></button>
+  </mat-list>
+</mat-card>

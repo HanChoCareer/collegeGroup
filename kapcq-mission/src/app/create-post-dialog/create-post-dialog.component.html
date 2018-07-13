@@ -1,0 +1,60 @@
+<h1 mat-dialog-title>Hi {{name}}</h1>
+<div mat-dialog-content>
+	<p>작성자</p>
+	<mat-form-field>
+		<input matInput [(ngModel)]="name">
+	</mat-form-field>
+
+	<p>부서</p>
+	<mat-form-field>
+		<mat-select [(value)]="group" required placeholder="Select">
+			<mat-option value="청대">청년 대학부</mat-option>
+			<mat-option value="청선">청년 선교부</mat-option>
+		</mat-select>
+	</mat-form-field>
+
+	<p>팀</p>
+	<mat-form-field>
+		<mat-select [(value)]="team" required placeholder="Select">
+			<mat-option value="#ff9999">빨</mat-option>
+			<mat-option value="#ffa64d">주</mat-option>
+			<mat-option value="#ffff66">노</mat-option>
+			<mat-option value="#4dff88">초</mat-option>
+			<mat-option value="#b3b3ff">파</mat-option>
+			<mat-option value="#5c5cd6">남</mat-option>
+			<mat-option value="#cc00cc">보</mat-option>
+		</mat-select>
+	</mat-form-field>
+
+	<p>제목</p>
+	<mat-form-field>
+		<input matInput [(ngModel)]="title">
+	</mat-form-field>
+
+	<p>내용</p>
+	<mat-form-field>
+		<input matInput [(ngModel)]="content">
+	</mat-form-field>
+
+	<p>장소</p>
+	<mat-form-field>
+		<input matInput [(ngModel)]="location">
+	</mat-form-field>
+
+	<p>날짜</p>
+	<mat-form-field>
+	  <input matInput [(ngModel)]="date" [matDatepicker]="picker">
+	  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+	  <mat-datepicker #picker></mat-datepicker>
+	</mat-form-field>
+
+	<p>시간</p>
+	<mat-form-field>
+	  <input matInput [(ngModel)]="time" type="time" >
+	</mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+	<button mat-button (click)="onNoClick()">Cancel</button>
+	<button mat-button (click)="submit()" cdkFocusInitial>Post</button>
+</div>

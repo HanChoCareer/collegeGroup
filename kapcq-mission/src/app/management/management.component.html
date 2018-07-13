@@ -1,0 +1,33 @@
+<mat-card>
+    <dx-data-grid
+        id="gridContainer"
+        [dataSource]="members"
+        [allowColumnResizing]="true"
+        [columnAutoWidth]="true"
+        (onRowInserting)="addMember($event)"
+        (onRowUpdating)="editMember($event)">
+        <dxo-paging [pageSize]="20"></dxo-paging>
+        <dxo-pager 
+            [showPageSizeSelector]="true"
+            [allowedPageSizes]="[5, 10, 20]"
+            [showInfo]="true">
+        </dxo-pager>
+        <dxo-search-panel [visible]="true"></dxo-search-panel>
+        <dxo-editing 
+            mode="popup"
+            [allowUpdating]="true"
+            [allowAdding]="true">
+            <dxo-popup
+                title="Member Info"
+                [showTitle]="true"
+                [position]="{ my: 'center', at: 'center'}">
+            </dxo-popup>
+        </dxo-editing>    
+        <dxi-column dataField="name"></dxi-column>
+        <dxi-column dataField="team_name"></dxi-column>
+        <!-- <dxi-column dataField="Position"></dxi-column>
+        <dxi-column dataField="Phone"></dxi-column>
+        <dxi-column dataField="Birthday"></dxi-column>
+        <dxi-column dataField="Email"></dxi-column> -->
+    </dx-data-grid>
+</mat-card>

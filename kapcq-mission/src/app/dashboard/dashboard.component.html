@@ -1,0 +1,73 @@
+<mat-card>
+    <mat-form-field style="width:100%;">
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="selectedDate" (dateChange)="viewAttendance()">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi="true" #picker></mat-datepicker>
+    </mat-form-field>
+</mat-card>
+<mat-card>
+    <mat-card-subtitle id="total">Total Members</mat-card-subtitle>
+    <mat-card-title id="total">{{total}}</mat-card-title>
+    <mat-card-subtitle id="total">Worship Attendance</mat-card-subtitle>
+    <mat-card-title id="total">{{worshipTotal}}</mat-card-title>
+    <mat-card-subtitle id="total">Meeting Attendance</mat-card-subtitle>
+    <mat-card-title id="total">{{meetingTotal}}</mat-card-title>
+</mat-card>
+<mat-card>
+    <dx-chart
+        id="chart"
+        title="Team Attendance"
+        [dataSource]="attendanceData"
+        (onPointClick)="onPointClick($event)">
+        <dxi-series valueField="total" name="Total"></dxi-series>
+        <dxi-series valueField="service" name="Service"></dxi-series>
+        <dxi-series valueField="meeting" name="Meeting"></dxi-series>
+        <dxo-common-series-settings
+            argumentField="team"
+            type="bar"
+            hoverMode="allArgumentPoints"
+            selectionMode="allArgumentPoints">
+            <dxo-label
+                [visible]="true"
+                [format]="{
+                    type: 'fixedPoint',
+                    precision: '0'
+                }">
+            </dxo-label>
+        </dxo-common-series-settings>
+        <dxo-legend
+            verticalAlignment="bottom"
+            horizontalAlignment="center">
+        </dxo-legend>
+    </dx-chart>
+</mat-card>
+<mat-card>
+    <mat-card-title style="text-align:center">{{teamName}}</mat-card-title>
+    <dx-data-grid
+    id="gridContainer"
+    [dataSource]="teamAttendance"
+    [columns]="['name', 'service', 'meeting', 'note']">
+    </dx-data-grid>
+</mat-card>
+<mat-card>
+    <dx-chart
+        title="Population: Age Structure (2000)"
+        palette="Harmony Light"
+        [dataSource]="populationData">
+        <dxi-series valueField="y1564" name="15-64 years"></dxi-series>
+        <dxi-series valueField="y014" name="0-14 years"></dxi-series>
+        <dxi-series valueField="y65" name="65 years and older"></dxi-series>
+        <dxo-common-series-settings
+			#commonSeries
+            argumentField="country"
+            [type]="area">
+        </dxo-common-series-settings>
+        <dxo-margin [bottom]="20"></dxo-margin>
+        <dxo-argument-axis [valueMarginsEnabled]="false"></dxo-argument-axis>
+        <dxo-export [enabled]="true"></dxo-export>
+        <dxo-legend
+            verticalAlignment="bottom"
+            horizontalAlignment="center">
+        </dxo-legend>
+    </dx-chart>
+</mat-card>

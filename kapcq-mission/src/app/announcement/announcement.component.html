@@ -1,0 +1,20 @@
+<mat-grid-list cols="5" rowHeight="100px">
+	<mat-grid-tile *ngFor="let tile of tiles" [colspan]=5 [rowspan]=5 [style.background]="tile.TeamColor">
+		<div class="leftCol">
+			{{tile.Location}}<br>
+			{{tile.Date | date:'fullDate'}}<br>
+			@{{tile.Time}}<br>
+		</div>
+		<div class="centerCol">
+			<div class="title">{{tile.Title}}<br></div>
+			{{tile.Content}}<br>
+		</div>
+		<div class="rightCol">
+			{{tile.Group}}<br>
+			{{tile.Writer}}<br>
+		</div>
+</mat-grid-tile>
+<div class="createPost-button">
+	<button mat-fab (click)="openDialog()"><mat-icon>create</mat-icon></button>
+</div>
+</mat-grid-list>

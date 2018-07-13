@@ -1,0 +1,20 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$prism-app-primary: mat-palette($mat-deep-orange, 400);
+$prism-app-accent:  mat-palette($mat-teal, A700);
+
+$prism-app-warn: mat-palette($mat-red);
+
+$prism-app-theme: mat-light-theme($prism-app-primary, $prism-app-accent, $prism-app-warn);
+
+@include angular-material-theme($prism-app-theme);
+
+// .alternate-theme {
+//     $alternate-primary: mat-palette($mat-blue-grey);
+//     $alternate-accent:  mat-palette($mat-orange, 400);
+    
+//     $alternate-theme: mat-light-theme($alternate-primary, $alternate-accent);
+
+//     @include angular-material-theme($alternate-theme);
+// }
