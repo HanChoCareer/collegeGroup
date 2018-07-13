@@ -26,7 +26,7 @@ export class PrismService {
   }
 
   getMembers() {
-    return this.afs.collection('members').snapshotChanges().map(actions => {
+    return this.afs.collection('attendance').snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data();
         data.id = a.payload.doc.id;
@@ -36,7 +36,7 @@ export class PrismService {
   }
 
   getTeamMembers(team) {
-    return this.afs.collection('members', ref => ref.where('Team', '==', team)).snapshotChanges().map(actions => {
+    return this.afs.collection('attendance', ref => ref.where('Team', '==', team)).snapshotChanges().map(actions => {
       return actions.map(a => {
         const data = a.payload.doc.data();
         data.id = a.payload.doc.id;
@@ -55,18 +55,24 @@ export class PrismService {
     })
   }
 
-  addMember(name, team) {
-    this.afs.collection('member').add({
-      name: name,
-      team_name: team
+  addMember(thatName, thatTeam, thatDob, thatFirstAttend, thatAddress) {
+    this.afs.collection('attendance').add({
+      name: thatName,
+      team: thatTeam,
+      dob: thatDob,
+      firstAttend: thatFirstAttend,
+      address: thatAddress
     });
   }
   
-  updateMember(id, name, team) {
-    console.log(id, name, team);
-    this.afs.collection('member').doc(id).set({
-      name: name,
-      team_name: team
+  updateMember(id, thatName, thatTeam, thatDob, thatFirstAttend, thatAddress) {
+    console.log(id, thatName, thatTeam, thatDob, thatFirstAttend, thatAddress);
+    this.afs.collection('attendance').doc(id).set({
+      name: thatName,
+      team: thatTeam,
+      dob: thatDob,
+      firstAttend: thatFirstAttend,
+      thatAddress: thatAddress
     }, {merge: true});
   }
   addAnnouncement(content: string, group: string, teamcolor: string, title: string, writer: string, location: string, time: string, date: Date) {

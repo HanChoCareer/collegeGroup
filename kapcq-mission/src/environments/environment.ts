@@ -5,10 +5,10 @@
 
 export const environment = {
   production: false,
-  apiKey: "AIzaSyC9eFXrdrJz2QV3DDXrANP0SURTXeBHUyM",
-  authDomain: "prism-dev-52ca4.firebaseapp.com",
-  databaseURL: "https://prism-dev-52ca4.firebaseio.com",
-  projectId: "prism-dev-52ca4",
-  storageBucket: "prism-dev-52ca4.appspot.com",
-  messagingSenderId: "283779742159"
+    apiKey: "AIzaSyAq3bR2-SrxELX9FkKAVFlzTjskuBV802w",
+    authDomain: "memembermanagement.firebaseapp.com",
+    databaseURL: "https://memembermanagement.firebaseio.com",
+    projectId: "memembermanagement",
+    storageBucket: "memembermanagement.appspot.com",
+    messagingSenderId: "455481081006"
 };

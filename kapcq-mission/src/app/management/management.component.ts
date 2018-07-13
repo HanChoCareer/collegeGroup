@@ -10,7 +10,7 @@ import { forEach } from '@angular/router/src/utils/collection';
 
 export class ManagementComponent implements OnInit {
 
-  members: any;
+  attendance: any;
 
   constructor(
     private ps: PrismService
@@ -19,16 +19,16 @@ export class ManagementComponent implements OnInit {
   ngOnInit() {
     var memberArray = [];
     this.ps.getMembers().subscribe(res => {
-      this.members = res;
+      this.attendance = res;
     });
   }
 
   addMember(e) {
     console.log('adding member...');
     // console.log(e.data);
-    if (e.data.name && e.data.team_name) {
+    if (e.data.name && e.data.team && e.data.dob && e.data.firstAttend && e.data.address) {
       // console.log('Name: ' + e.data.name + " Team Name: " + e.data.team_name);
-      this.ps.addMember(e.data.name, e.data.team_name);
+      this.ps.addMember(e.data.name, e.data.team, e.data.dob, e.data.firstAttend,e.data.address);
     }
   }
 

@@ -1,7 +1,7 @@
 <mat-card>
     <dx-data-grid
         id="gridContainer"
-        [dataSource]="members"
+        [dataSource]="attendance"
         [allowColumnResizing]="true"
         [columnAutoWidth]="true"
         (onRowInserting)="addMember($event)"
@@ -24,7 +24,10 @@
             </dxo-popup>
         </dxo-editing>    
         <dxi-column dataField="name"></dxi-column>
-        <dxi-column dataField="team_name"></dxi-column>
+        <dxi-column dataField="team"></dxi-column>
+        <dxi-column dataField="dob"></dxi-column>
+        <dxi-column dataField="firstAttend"></dxi-column>
+        <dxi-column dataField="address"></dxi-column>
         <!-- <dxi-column dataField="Position"></dxi-column>
         <dxi-column dataField="Phone"></dxi-column>
         <dxi-column dataField="Birthday"></dxi-column>
