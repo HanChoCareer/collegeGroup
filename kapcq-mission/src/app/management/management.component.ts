@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PrismService } from '../prism.service';
+import { PrismService } from '../services/prism.service';
 import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
@@ -37,11 +37,11 @@ export class ManagementComponent implements OnInit {
     if (e.newData.name == undefined) {
       e.newData.name = e.oldData.name;
     }
-    if (e.newData.team_name == undefined) {
-      e.newData.team_name = e.oldData.team_name;
+    if (e.newData.team == undefined) {
+      e.newData.team = e.oldData.team;
     }
-    if (e.oldData.id && e.newData.name && e.newData.team_name) {
-      this.ps.updateMember(e.oldData.id, e.newData.name, e.newData.team_name);
+    if (e.oldData.id && e.newData.name && e.newData.team && e.newData.Dob && e.newData.firstAttend && e.newData.address) {
+      this.ps.updateMember(e.oldData.id, e.newData.name, e.newData.team, e.newData.dob, e.newData.firstAttend, e.newData.address);
     }
   }
 

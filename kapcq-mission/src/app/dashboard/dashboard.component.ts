@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 // import { Observable } from 'rxjs/Observable';
 // import 'rxjs/add/operator/map';
-import { PrismService } from '../prism.service';
+import { PrismService } from '../services/prism.service';
 import { Attendance } from '../model';
 
 @Component({

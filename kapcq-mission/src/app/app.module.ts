@@ -11,9 +11,11 @@ import { MatDialogModule, MatDialog,MatDialogRef } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { environment } from '../environments/environment';
-import { PrismService } from './prism.service';
+import { PrismService } from './services/prism.service';
 
 import { AppComponent } from './app.component';
 import { MemberManagementComponent } from './member-management/member-management.component';
@@ -24,6 +26,8 @@ import { AnnouncementComponent } from './announcement/announcement.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { CreatePostDialogComponent } from './create-post-dialog/create-post-dialog.component';
 import { WarningDialogComponent } from './create-post-dialog/warning-dialog/warning-dialog.component';
+import { LoginComponent } from './user/login/login.component';
+import { RegisterComponent } from './user/register/register.component';
 
 
 var firebaseConfig = {
@@ -46,6 +50,8 @@ var firebaseConfig = {
     AttendanceComponent,
     CreatePostDialogComponent,
     WarningDialogComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   entryComponents: [CreatePostDialogComponent, WarningDialogComponent],
   imports: [
@@ -60,7 +66,9 @@ var firebaseConfig = {
     MatInputModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
-    FormsModule
+    FormsModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [PrismService],
   bootstrap: [AppComponent]

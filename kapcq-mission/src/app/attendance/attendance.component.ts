@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PrismService } from '../prism.service';
+import { PrismService } from '../services/prism.service';
 
 @Component({
   selector: 'app-attendance',

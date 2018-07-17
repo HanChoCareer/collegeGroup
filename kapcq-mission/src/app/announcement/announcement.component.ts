@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { PrismService } from '../prism.service';
+import { PrismService } from '../services/prism.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { CreatePostDialogComponent } from '../create-post-dialog/create-post-dialog.component';
 
