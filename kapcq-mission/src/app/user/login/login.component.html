@@ -1,6 +1,6 @@
 <div class="row columns">
-  <input type="text" [(ngModel)]="email" required>
-  <input type="password" name="password" [(ngModel)]="password" required>
+  <input class="column" type="text" [(ngModel)]="email" required>
+  <input class="column" type="password" name="password" [(ngModel)]="password" required>
   <button (click)="login()" *ngIf="!(user | async)?.uid">Login</button>
   <a routerLink = "/register">Create </a>
   <button (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>
